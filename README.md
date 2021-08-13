@@ -27,7 +27,7 @@ jobs:
         - terraform init $tf_init_cli_options
         - terraform apply $tf_apply_cli_options
     - stage: destroy
-      # Only run terraform apply stage if outside of a pull request
+      # Destroy as this was an example
       if: type IN (push) and branch = master
       script:
         - terraform destroy
