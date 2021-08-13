@@ -5,6 +5,7 @@ Travis CI + Terraform Dockerfile
 
 # Plan only on pull requests, Apply on merged code
 
+---
 dist: xenial
 language: minimal
 
