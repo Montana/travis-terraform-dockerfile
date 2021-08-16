@@ -1,8 +1,19 @@
 #!/bin/bash
-
-# The Ansible method put in a shell script vs Dockerfile. 
-
 set=+x
+
+/ # set -v && echo $HOME
+/root
+/ # set +v && echo $HOME
+set +v && echo $HOME
+/root
+
+/ # set -x && echo $HOME
++ echo /root
+/root
+/ # set +x && echo $HOME
++ set +x
+/root
+
 
 cred="-var "do_token=${DO_PAT}""
 tf=$(which terraform)
@@ -22,7 +33,7 @@ init() {
     $tf validate
 }
 
-# Check depth of branch, clone, remove then start again.
+# Check depth of branch, clone, remove then start again, choose Ansible, since this is the anthesis of a Dockerfile.
 
 clone() {
     if [ -d ansible ]; then
